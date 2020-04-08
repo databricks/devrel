@@ -5,19 +5,19 @@ You can find links to the tech talks below as well as the notebooks for these se
 
 ## Featured Tech Talk
 
-<img src="./images/covid-19-border.png" width="600" style="border:1px solid black"/><br/>
 
 ##### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Health_-_The_Noun_Project.svg/240px-Health_-_The_Noun_Project.svg.png" width="32" /> 2020-03-19 - [Analyzing COVID-19: Can the Data Community Help?](https://www.youtube.com/watch?v=A0uBdY4Crlg)
 <blockquote>
 	With the current concerns over SARS-Cov-2 and COVID-19, there are now various COVID-19 datasets on Kaggle and GitHub, competitions such as the <a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge" target="_blank">COVID-19 Open Research Dataset Challenge (CORD-19)</a>, and models such as University of Washington’s Institute for Health Metrics and Evaluation (IHME) <a href="https://covid19.healthdata.org/" target="_blank">COVID-19 Projections</a>. Whether you are a student or a professional data scientist, we thought we could help out by providing educational sessions on how to analyze these datasets.
 </blockquote><br/>
+<img src="./images/cord-19-EDA-NLP.png" width="800" style="border:1px solid black"/><br/>
 
-<img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-1.png" width="500"/><br/>
 
 ##### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-08 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Introduction to Python on Databricks](https://www.youtube.com/watch?v=HBVQAlv8MRQ)
 <blockquote>
 	 Python is a popular programming language because of its wide applications including but not limited to data analysis, machine learning, and web development. This workshop covers major foundational concepts necessary for you to start coding in Python, with a focus on data analysis. You will learn about different types of variables, for loops, functions, and conditional statements. No prior programming knowledge is required.
 </blockquote><br/>
+<img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-1.png" width="500"/><br/>
 
 
 ## Upcoming Tech Talks
@@ -26,6 +26,8 @@ You can find links to the tech talks below as well as the notebooks for these se
 <blockquote>
 	 This workshop is on pandas, a powerful open-source Python package for data analysis and manipulation. In this workshop, you will learn how to read data, compute summary statistics, check data distributions, conduct basic data cleaning and transformation, and plot simple visualizations. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
 </blockquote><br/>
+<img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-2.png" width="500"/><br/>
+
 
 ##### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png"> 2020-04-16 - [Diving into Delta Lake: DML Internals](https://databricks.zoom.us/webinar/register/WN_loullvocQXSYfQye9mQNoA)
 <blockquote>
