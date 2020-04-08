@@ -12,13 +12,15 @@ You can find links to the tech talks below as well as the notebooks for these se
 	With the current concerns over SARS-Cov-2 and COVID-19, there are now various COVID-19 datasets on Kaggle and GitHub, competitions such as the <a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge" target="_blank">COVID-19 Open Research Dataset Challenge (CORD-19)</a>, and models such as University of Washington’s Institute for Health Metrics and Evaluation (IHME) <a href="https://covid19.healthdata.org/" target="_blank">COVID-19 Projections</a>. Whether you are a student or a professional data scientist, we thought we could help out by providing educational sessions on how to analyze these datasets.
 </blockquote><br/>
 
-## Upcoming Tech Talks
-
 <img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-1.png" width="500"/><br/>
-##### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-08 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Introduction to Python on Databricks](https://www.meetup.com/data-ai-online/events/269814565/)
+
+##### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-08 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Introduction to Python on Databricks](https://www.youtube.com/watch?v=HBVQAlv8MRQ)
 <blockquote>
 	 Python is a popular programming language because of its wide applications including but not limited to data analysis, machine learning, and web development. This workshop covers major foundational concepts necessary for you to start coding in Python, with a focus on data analysis. You will learn about different types of variables, for loops, functions, and conditional statements. No prior programming knowledge is required.
 </blockquote><br/>
+
+
+## Upcoming Tech Talks
 
 ##### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-15 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Data Analysis with Pandas](https://www.meetup.com/data-ai-online/events/269827433/)
 <blockquote>
