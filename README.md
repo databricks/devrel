@@ -41,6 +41,14 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 </blockquote><br/>
 
 
+## Featured Notebooks
+#### <img src="./images/Notebook_Black-01.png" width="32"/> [Notebook | Johns Hopkins CSSE COVID-19 Analysis](./samples/)  
+<blockquote>
+	This notebook processes and performs quick analysis from the 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE (https://github.com/CSSEGISandData/COVID-19). The data is updated in the `/databricks-datasets/COVID/CSSEGISandData/` location regularly so you can access the data directly.  The following animated GIF shows the COVID-19 confirmed cases and deaths per the Johns Hopkins dataset spanning 15 days (March 22nd to April 6th 2020).
+</blockquote><br/>
+<img src="./images/covid-19_jhu_v2.gif" style="border:1px solid black"/><br/>
+
+
 ## Previous Tech Talks
 
 #### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png">2020-04-02 - [Diving into Delta Lake: Enforcing and Evolving Schema](https://www.youtube.com/watch?v=tjb10n5wVs8)
