@@ -69,6 +69,10 @@ spark.sql("SELECT * FROM loans_delta LIMIT 5").show()
 
 # COMMAND ----------
 
+
+
+# COMMAND ----------
+
 # MAGIC %md ### Review Underlying Files
 # MAGIC * Review the underlying `parquet` files
 # MAGIC * Initial log
@@ -142,6 +146,14 @@ deltaTable.update("addr_state = 'WA'", { "paid_amnt": "funded_amnt" } )
 
 # COMMAND ----------
 
+
+
+# COMMAND ----------
+
+display(deltaTable.history())
+
+# COMMAND ----------
+
 # MAGIC %sql
 # MAGIC select addr_state, sum(funded_amnt)/1000000 as funded_amnt from loans_delta where funded_amnt <> paid_amnt group by addr_state
 
@@ -181,6 +193,10 @@ display(j1.select("remove").where("remove is not null"))
 
 # Remove Information
 display(j1.select("add").where("add is not null"))
+
+# COMMAND ----------
+
+
 
 # COMMAND ----------
 
