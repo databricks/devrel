@@ -1,6 +1,6 @@
 ## Diving into Delta Lake: DML Internals
 
-2020-04-16 | [Watch the video]() | This folder contains the presentation and sample notebooks
+2020-04-16 | [Watch the video](https://www.youtube.com/watch?v=7ewmcdrylsA) | This folder contains the presentation and sample notebooks
 
 In the earlier Delta Lake Internals webinar series sessions, we described how the Delta Lake transaction log works. In this session, we will dive deeper into how commits, snapshot isolation, and partition and files change when performing deletes, updates, and merges. In this webinar you will learn about:
 
