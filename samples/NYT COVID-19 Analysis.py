@@ -45,17 +45,17 @@ map_fips_dedup.createOrReplaceTempView("map_fips_dedup")
 
 # COMMAND ----------
 
-# MAGIC %md ### Download 2014 Population Estimates
+# MAGIC %md ### Download 2019 Population Estimates
 
 # COMMAND ----------
 
-# MAGIC %sh mkdir -p /dbfs/tmp/dennylee/COVID/population_estimates_by_county/ && wget -O /dbfs/tmp/dennylee/COVID/population_estimates_by_county/CO-EST2014-alldata.csv https://raw.githubusercontent.com/dennyglee/tech-talks/master/datasets/county-estimates.csv && ls -al /dbfs/tmp/dennylee/COVID/population_estimates_by_county/
+# MAGIC %sh mkdir -p /dbfs/tmp/dennylee/COVID/population_estimates_by_county/ && wget -O /dbfs/tmp/dennylee/COVID/population_estimates_by_county/co-est2019-alldata.csv https://raw.githubusercontent.com/databricks/tech-talks/master/datasets/co-est2019-alldata.csv && ls -al /dbfs/tmp/dennylee/COVID/population_estimates_by_county/
 
 # COMMAND ----------
 
-map_popest_county = spark.read.option("header", True).option("inferSchema", True).csv("/tmp/dennylee/COVID/population_estimates_by_county/CO-EST2014-alldata.csv")
+map_popest_county = spark.read.option("header", True).option("inferSchema", True).csv("/tmp/dennylee/COVID/population_estimates_by_county/co-est2019-alldata.csv")
 map_popest_county.createOrReplaceTempView("map_popest_county")
-fips_popest_county = spark.sql("select State * 1000 + substring(cast(1000 + County as string), 2, 3) as fips, STNAME, CTYNAME, census2010pop, POPESTIMATE2014 from map_popest_county")
+fips_popest_county = spark.sql("select State * 1000 + substring(cast(1000 + County as string), 2, 3) as fips, STNAME, CTYNAME, census2010pop, POPESTIMATE2019 from map_popest_county")
 fips_popest_county.createOrReplaceTempView("fips_popest_county")
 
 # COMMAND ----------
@@ -76,6 +76,7 @@ display(nyt_daily)
 # MAGIC Focusing on two-week window around when educational facilites were closed
 # MAGIC * Top 10 Washington State counties (3/13/2020)
 # MAGIC * Top 10 NY State counties (3/18/2020)
+# MAGIC The queries are using the US Census Population Estimates for 2019
 
 # COMMAND ----------
 
@@ -83,7 +84,7 @@ display(nyt_daily)
 wa_state_window = spark.sql("""
 SELECT date, 100 + datediff(date, '2020-03-06T00:00:00.000+0000') as day_num, county, fips, cases, deaths, 100000.*cases/population_estimate AS cases_per_100Kpop, 100000.*deaths/population_estimate AS deaths_per_100Kpop
   from (
-SELECT CAST(f.date AS date) AS date, f.county, f.fips, SUM(f.cases) AS cases, SUM(f.deaths) AS deaths, MAX(p.POPESTIMATE2014) AS population_estimate 
+SELECT CAST(f.date AS date) AS date, f.county, f.fips, SUM(f.cases) AS cases, SUM(f.deaths) AS deaths, MAX(p.POPESTIMATE2019) AS population_estimate 
   FROM nyt_daily f 
     JOIN fips_popest_county p
       ON p.fips = f.fips
@@ -97,7 +98,7 @@ wa_state_window.createOrReplaceTempView("wa_state_window")
 ny_state_window = spark.sql("""
 SELECT date, 100 + datediff(date, '2020-03-11T00:00:00.000+0000') as day_num, county, fips, cases, deaths, 100000.*cases/population_estimate AS cases_per_100Kpop, 100000.*deaths/population_estimate AS deaths_per_100Kpop
   FROM (
-SELECT CAST(f.date AS date) AS date, f.county, p.fips, SUM(f.cases) as cases, SUM(f.deaths) as deaths, MAX(p.POPESTIMATE2014) AS population_estimate  
+SELECT CAST(f.date AS date) AS date, f.county, p.fips, SUM(f.cases) as cases, SUM(f.deaths) as deaths, MAX(p.POPESTIMATE2019) AS population_estimate  
   FROM nyt_daily f 
     JOIN fips_popest_county p
       ON p.fips = coalesce(f.fips, 36061)
@@ -111,7 +112,7 @@ ny_state_window.createOrReplaceTempView("ny_state_window")
 ny_state_window_m1 = spark.sql("""
 SELECT date, 100 + datediff(date, '2020-03-06T00:00:00.000+0000') as day_num, county, fips, cases, deaths, 100000.*cases/population_estimate AS cases_per_100Kpop, 100000.*deaths/population_estimate AS deaths_per_100Kpop
   FROM (
-SELECT CAST(f.date AS date) AS date, f.county, p.fips, SUM(f.cases) as cases, SUM(f.deaths) as deaths, MAX(p.POPESTIMATE2014) AS population_estimate  
+SELECT CAST(f.date AS date) AS date, f.county, p.fips, SUM(f.cases) as cases, SUM(f.deaths) as deaths, MAX(p.POPESTIMATE2019) AS population_estimate  
   FROM nyt_daily f 
     JOIN fips_popest_county p
       ON p.fips = coalesce(f.fips, 36061)
@@ -158,7 +159,9 @@ ny_state_window_m1.createOrReplaceTempView("ny_state_window_m1")
 # COMMAND ----------
 
 # MAGIC %md ## COVID-19 Cases per 100K people for WA and NY Counties
-# MAGIC Let's look at these values by a percentage of the population; the numbers used are the 2014 US Census estimates of county populations.
+# MAGIC The concern with the above graphs is while it provides you the total number of cases, it's hard to compare WA state and NY state due to density.  While not perfect, a better way to look at these numbers would be to review this data as a proportion of population estimates.
+# MAGIC 
+# MAGIC Let's look at these values by a percentage of the population; the numbers used are the 2019 US Census estimates of county populations.
 # MAGIC 
 # MAGIC *Note, reviewing the top 10 counties by case (vs. % of cases)* 
 
@@ -196,11 +199,6 @@ ny_state_window_m1.createOrReplaceTempView("ny_state_window_m1")
 
 # MAGIC %md ## Visualize Cases by State Choropleth Maps
 # MAGIC * Join the data with `map_fips_dedup` to obtain the county centroid lat, long_
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC select * from wa_state_window limit 10
 
 # COMMAND ----------
 
@@ -365,7 +363,7 @@ def map_state_slider(state_txt, state_counties, confirmed, confirmed_min, confir
   deaths_pv = deaths_pv.pivot_table(index=['lat', 'long_'], columns='day_num', values='deaths', fill_value=0).reset_index()
 
   # Extract column names for slider
-  column_names = confirmed_pv_wa.columns.tolist()
+  column_names = confirmed_pv.columns.tolist()
 
   # Remove first element (`fips`)
   column_names.pop(0)
