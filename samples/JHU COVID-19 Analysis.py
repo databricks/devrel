@@ -156,7 +156,52 @@ display(jhu_daily)
 
 # COMMAND ----------
 
+#%sh
+#rm -fR /dbfs/tmp/dennylee/COVID/jhu_daily/
+
+# COMMAND ----------
+
+# # Saving jhu_daily table
+# file_path = '/tmp/dennylee/COVID/jhu_daily/'
+# jhu_daily.repartition(4).write.format("parquet").save(file_path)
+
+# COMMAND ----------
+
+# MAGIC %md ## Download 2019 Population Estimates
+
+# COMMAND ----------
+
+# MAGIC %sh mkdir -p /dbfs/tmp/dennylee/COVID/population_estimates_by_county/ && wget -O /dbfs/tmp/dennylee/COVID/population_estimates_by_county/co-est2019-alldata.csv https://raw.githubusercontent.com/databricks/tech-talks/master/datasets/co-est2019-alldata.csv && ls -al /dbfs/tmp/dennylee/COVID/population_estimates_by_county/
+
+# COMMAND ----------
+
+map_popest_county = spark.read.option("header", True).option("inferSchema", True).csv("/tmp/dennylee/COVID/population_estimates_by_county/co-est2019-alldata.csv")
+map_popest_county.createOrReplaceTempView("map_popest_county")
+fips_popest_county = spark.sql("select State * 1000 + substring(cast(1000 + County as string), 2, 3) as fips, STNAME, CTYNAME, census2010pop, POPESTIMATE2019 from map_popest_county")
+fips_popest_county.createOrReplaceTempView("fips_popest_county")
+
+# COMMAND ----------
+
+# MAGIC %md ## Include Population Estimates
+# MAGIC Create `jhu_daily_pop` to include population estimates; note, by including population estimates we're limiting our dataset from 3/22 onwards as the data prior to 3/22 does not contain `FIPS` information.
+
+# COMMAND ----------
+
+jhu_daily_pop = spark.sql("""
+SELECT f.FIPS, f.Admin2, f.Province_State, f.Country_Region, f.Last_Update, f.Lat, f.Long_, f.Confirmed, f.Deaths, f.Recovered, f.Active, f.Combined_Key, f.process_date, p.POPESTIMATE2019 
+  FROM jhu_daily f
+    JOIN fips_popest_county p
+      ON p.fips = f.FIPS
+""")
+jhu_daily_pop.createOrReplaceTempView("jhu_daily_pop")
+
+# COMMAND ----------
+
 # MAGIC %md ## Initial Exploratory Data Analysis
+
+# COMMAND ----------
+
+# MAGIC %md #### Reviewing the confirmed cases and deaths for NY and King Counties
 
 # COMMAND ----------
 
@@ -170,16 +215,32 @@ display(jhu_daily)
 
 # COMMAND ----------
 
+# MAGIC %md #### Reviewing the confirmed cases and deaths in proportion to the population for NY and King Counties
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select process_date, Admin2, 100000.*Confirmed/POPESTIMATE2019 as Confirmed_per100K, 100000.*Deaths/POPESTIMATE2019 as Deaths_per100K, Recovered, Active from jhu_daily_pop where Province_State in ('New York') and Admin2 in ('New York City')
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select process_date, Admin2, 100000.*Confirmed/POPESTIMATE2019 as Confirmed_per100K, 100000.*Deaths/POPESTIMATE2019 as Deaths_per100K, Recovered, Active from jhu_daily_pop where Province_State in ('Washington') and Admin2 in ('King')
+
+# COMMAND ----------
+
 # MAGIC %md ## COVID-19 Confirmed Cases and Deaths by County
 
 # COMMAND ----------
 
 # Create `usa` dataframe
-df_usa = spark.sql("select fips, confirmed, deaths, recovered, active, lat, long_, admin2 as county, province_state as state, process_date, cast(replace(process_date, '-', '') as integer) as process_date_num from jhu_daily where lat is not null and long_ is not null and fips is not null and (lat <> 0 and long_ <> 0)")
+df_usa = spark.sql("select fips, cast(100000.*Confirmed/POPESTIMATE2019 as int) as confirmed_per100K, cast(100000.*Deaths/POPESTIMATE2019 as int) as deaths_per100K, recovered, active, lat, long_, admin2 as county, province_state as state, process_date, cast(replace(process_date, '-', '') as integer) as process_date_num from jhu_daily_pop where lat is not null and long_ is not null and fips is not null and (lat <> 0 and long_ <> 0)")
 df_usa.createOrReplaceTempView("df_usa")
 
 # Convert latest date of data to pandas DataFrame
 pdf_usa = df_usa.toPandas()
+pdf_usa['confirmed_per100K'] = pdf_usa['confirmed_per100K'].astype('int32')
+pdf_usa['deaths_per100K'] = pdf_usa['deaths_per100K'].astype('int32')
 
 # COMMAND ----------
 
@@ -230,17 +291,61 @@ def map_usa_cases(curr_date):
 
 # COMMAND ----------
 
+def map_usa_cases(curr_date):
+  # Obtain altair topographic information
+  us_states = alt.topo_feature(topo_usa, 'states')
+  us_counties = alt.topo_feature(topo_usa, 'counties')
+
+  # state borders
+  base_states = alt.Chart(us_states).mark_geoshape().encode(
+    stroke=alt.value('lightgray'), fill=alt.value('white')
+  ).properties(
+    width=1200,
+    height=960,
+  ).project(
+    type='albersUsa',
+  )
+
+
+  # confirmed cases by county
+  base_counties = alt.Chart(us_counties).mark_geoshape().encode(
+    color=alt.Color('confirmed_per100K:Q', scale=alt.Scale(domain=(1, 7500), type='log'), title='Confirmed per 100K'),
+  ).transform_lookup(
+    lookup='id',
+    from_=alt.LookupData(pdf_usa[(pdf_usa['confirmed_per100K'] > 0) & (pdf_usa['process_date'] == curr_date)], 'fips', ['confirmed_per100K'])  
+  )
+
+  # deaths by long, latitude
+  points = alt.Chart(pdf_usa[(pdf_usa['deaths_per100K'] > 0) & (pdf_usa['process_date'] == curr_date)]).mark_point(opacity=0.75, filled=True).encode(
+    longitude='long_:Q',
+    latitude='lat:Q',
+     size=alt.Size('deaths_per100K:Q', scale=alt.Scale(domain=(1, 1000), type='log'), title='deaths_per100K'),
+     #size=alt.Size('deaths_per100K:Q', title='deaths_per100K'),
+     color=alt.value('#BD595D'),
+     stroke=alt.value('brown'),
+    tooltip=[
+      alt.Tooltip('state', title='state'), 
+      alt.Tooltip('county', title='county'), 
+      alt.Tooltip('confirmed_per100K', title='confirmed'),
+      alt.Tooltip('deaths_per100K', title='deaths'),       
+    ],
+  ).properties(
+    # update figure title
+    title=f'COVID-19 Confirmed Cases and Deaths by County (by 100K) {curr_date}'
+  )
+
+   # display graph
+  return (base_states + base_counties + points)
+
+# COMMAND ----------
+
 # Starting Date (2020-03-22)
 map_usa_cases('2020-03-22')
 
 # COMMAND ----------
 
-# Latest Date (2020-04-06)
-map_usa_cases('2020-04-06')
-
-# COMMAND ----------
-
-
+# Latest Date (2020-04-14)
+map_usa_cases('2020-04-14')
 
 # COMMAND ----------
 
@@ -251,9 +356,9 @@ map_usa_cases('2020-04-06')
 # Create `usa_confirmed` dataframe 
 process_date_zero = spark.sql("select min(process_date) from df_usa where fips is not null").collect()[0][0]
 df_usa_conf = spark.sql("""
-select fips, 100 + datediff(process_date, '""" + process_date_zero + """') as day_num, confirmed
+select fips, 100 + datediff(process_date, '""" + process_date_zero + """') as day_num, confirmed_per100K
   from (
-     select fips, process_date, max(confirmed) as confirmed 
+     select fips, process_date, max(confirmed_per100K) as confirmed_per100K
        from df_usa
       group by fips, process_date
 ) x """)
@@ -262,14 +367,14 @@ df_usa_conf.createOrReplaceTempView("df_usa_conf")
 # Convert to Pandas
 pdf_usa_conf = df_usa_conf.toPandas()
 pdf_usa_conf['day_num'] = pdf_usa_conf['day_num'].astype(str)
-pdf_usa_conf['confirmed'] = pdf_usa_conf['confirmed'].astype('int64')
-pdf_usa_conf = pdf_usa_conf.pivot_table(index='fips', columns='day_num', values='confirmed', fill_value=0).reset_index()
+pdf_usa_conf['confirmed_per100K'] = pdf_usa_conf['confirmed_per100K'].astype('int64')
+pdf_usa_conf = pdf_usa_conf.pivot_table(index='fips', columns='day_num', values='confirmed_per100K', fill_value=0).reset_index()
 
 # Create `usa_deaths` datasframe
 df_usa_deaths = spark.sql("""
-select lat, long_, 100 + datediff(process_date, '""" + process_date_zero + """') as day_num, deaths
+select lat, long_, 100 + datediff(process_date, '""" + process_date_zero + """') as day_num, deaths_per100K
   from (
-     select lat, long_, process_date, max(deaths) as deaths
+     select lat, long_, process_date, max(deaths_per100K) as deaths_per100K
        from df_usa
       group by lat, long_, process_date
 ) x """)
@@ -278,8 +383,8 @@ df_usa_deaths.createOrReplaceTempView("df_usa_deaths")
 # Covnert to pandas
 pdf_usa_deaths = df_usa_deaths.toPandas()
 pdf_usa_deaths['day_num'] = pdf_usa_deaths['day_num'].astype(str)
-pdf_usa_deaths['deaths'] = pdf_usa_deaths['deaths'].astype('int64')
-pdf_usa_deaths = pdf_usa_deaths.pivot_table(index=['lat', 'long_'], columns='day_num', values='deaths', fill_value=0).reset_index()
+pdf_usa_deaths['deaths_per100K'] = pdf_usa_deaths['deaths_per100K'].astype('int64')
+pdf_usa_deaths = pdf_usa_deaths.pivot_table(index=['lat', 'long_'], columns='day_num', values='deaths_per100K', fill_value=0).reset_index()
 
 # Extract column names for slider
 column_names = pdf_usa_conf.columns.tolist()
@@ -314,7 +419,7 @@ base_states = alt.Chart(us_states).mark_geoshape().encode(
 min_day_num = column_values[0]
 max_day_num = column_values[len(column_values)-1]
 slider = alt.binding_range(min=min_day_num, max=max_day_num, step=1)
-slider_selection = alt.selection_single(fields=['day_num'], bind=slider, name="day_num", init={'day_num':min_day_num})
+slider_selection = alt.selection_single(fields=['day_num'], bind=slider, name="day_num", init={'day_num':max_day_num})
 
 # Confirmed cases by county
 base_counties = alt.Chart(us_counties).mark_geoshape(
@@ -326,18 +431,20 @@ base_counties = alt.Chart(us_counties).mark_geoshape(
     lookup='id',
     from_=alt.LookupData(pdf_usa_conf, 'fips', column_names)  
 ).transform_fold(
-    column_names, as_=['day_num', 'confirmed']
+    column_names, as_=['day_num', 'confirmed_per100K']
 ).transform_calculate(
     day_num = 'parseInt(datum.day_num)',
-    confirmed = 'isValid(datum.confirmed) ? datum.confirmed : -1'
+    confirmed_per100K = 'isValid(datum.confirmed_per100K) ? datum.confirmed_per100K : -1'
 ).encode(
     color = alt.condition(
-        'datum.confirmed > 0',      
-        alt.Color('confirmed:Q', scale=alt.Scale(type='symlog')),
+        'datum.confirmed_per100K > 0',      
+        alt.Color('confirmed_per100K:Q', scale=alt.Scale(domain=(1, 7500), type='log')),
         alt.value('white')
       )  
 ).transform_filter(
     slider_selection
+# ).add_selection(
+#     slider_selection
 )
 
 # deaths by long, latitude
@@ -346,19 +453,19 @@ points = alt.Chart(
 ).mark_point(
   opacity=0.75, filled=True
 ).transform_fold(
-  column_names, as_=['day_num', 'deaths']
+  column_names, as_=['day_num', 'deaths_per100K']
 ).transform_calculate(
     day_num = 'parseInt(datum.day_num)',
-    deaths = 'isValid(datum.deaths) ? datum.deaths : -1'  
+    deaths_per100K = 'isValid(datum.deaths_per100K) ? datum.deaths_per100K : -1'  
 ).encode(
   longitude='long_:Q',
   latitude='lat:Q',
-  size=alt.Size('deaths:Q', scale=alt.Scale(type='symlog'), title='deaths'),
+  size=alt.Size('deaths_per100K:Q', scale=alt.Scale(domain=(1, 1000), type='log'), title='deaths_per100K'),
   color=alt.value('#BD595D'),
   stroke=alt.value('brown'),
 ).properties(
   # update figure title
-  title=f'COVID-19 Confirmed Cases and Deaths by County Between 3/22 to 4/6 (2020)'
+  title=f'COVID-19 Confirmed Cases and Deaths by County (per 100K) Between 3/22 to 4/14 (2020)'
 ).add_selection(
     slider_selection
 ).transform_filter(
