@@ -18,6 +18,15 @@
 
 # COMMAND ----------
 
+# MAGIC %md #### Instally pycountry module in this workspace
+
+# COMMAND ----------
+
+dbutils.library.installPyPI("pycountry", version="19.8.18")
+#dbutils.library.restartPython()
+
+# COMMAND ----------
+
 # MAGIC %md #### Configure Parquet Path Variables
 # MAGIC Save the data in Parquet format at: `/tmp/dennylee/COVID/CORD-19/2020-03-13/`
 
