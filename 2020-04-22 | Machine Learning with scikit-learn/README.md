@@ -6,6 +6,6 @@ Join us for a three part learning series: *Introduction to Data Analysis for Asp
 
 **Part 3: Machine Learning with scikit-learn**
 
-Abstract: scikit-learn is one of the most popular open-source machine learning libraries among data science practitioners. This workshop will walk through what machine learning is, the different types of machine learning, and how to build a simple machine learning model. This workshop focuses on the techniques of applying and evaluating machine learning methods, rather than the statistical concepts behind them. We will be using data released by the [Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)](https://github.com/CSSEGISandData/COVID-19). Prior basic Python and pandas experience is required.
+Abstract: scikit-learn is one of the most popular open-source machine learning libraries among data science practitioners. This workshop will walk through what machine learning is, the different types of machine learning, and how to build a simple machine learning model. This workshop focuses on the techniques of applying and evaluating machine learning methods, rather than the statistical concepts behind them. We will be using data released by the [New York Times](https://github.com/nytimes/covid-19-data). Prior basic Python and pandas experience is required.
 
 Who should attend this workshop: Anyone and everyone, CS students and even non-technical folks are welcome to join. Please note, prior basic Python experience is recommended.
