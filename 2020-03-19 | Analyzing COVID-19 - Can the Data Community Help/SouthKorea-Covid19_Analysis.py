@@ -32,7 +32,7 @@
 # MAGIC 
 # MAGIC CREATE TABLE patient_csv
 # MAGIC USING csv
-# MAGIC OPTIONS (path "/databricks-datasets/COVID/SouthKorea/patient.csv", header "true")
+# MAGIC OPTIONS (path "/databricks-datasets/COVID/coronavirusdataset/PatientInfo.csv", header "true")
 
 # COMMAND ----------
 
@@ -63,8 +63,8 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC SELECT infection_reason, month(cast(confirmed_date as date)) AS month, count(patient_id) FROM patient_csv where infection_reason is not null
-# MAGIC group by infection_reason, month order by month
+# MAGIC SELECT infection_case, month(cast(confirmed_date as date)) AS month, count(patient_id) FROM patient_csv where infection_case is not null
+# MAGIC group by infection_case, month order by month
 
 # COMMAND ----------
 
@@ -75,8 +75,7 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC Use covid;
-# MAGIC select confirmed_date, count(patient_id) from covid.patient_csv where confirmed_date is not null group by confirmed_date order by confirmed_date;
+# MAGIC select confirmed_date, count(patient_id) from patient_csv where confirmed_date is not null group by confirmed_date order by confirmed_date;
 
 # COMMAND ----------
 
@@ -87,7 +86,7 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC select region, datediff(released_date, confirmed_date) as recovery_time, count(patient_id) from patient_csv  where released_date is not null group by region, recovery_time order by count(patient_id) desc
+# MAGIC select province, datediff(released_date, confirmed_date) as recovery_time, count(patient_id) from patient_csv  where released_date is not null group by province, recovery_time order by count(patient_id) desc
 
 # COMMAND ----------
 
@@ -98,7 +97,7 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC select region, datediff(deceased_date, confirmed_date) as fatality_time, count(patient_id) from patient_csv  where deceased_date is not null group by region, fatality_time order by count(patient_id) desc
+# MAGIC select province, datediff(deceased_date, confirmed_date) as fatality_time, count(patient_id) from patient_csv  where deceased_date is not null group by province, fatality_time order by count(patient_id) desc
 
 # COMMAND ----------
 
@@ -110,7 +109,7 @@
 
 # MAGIC %sql
 # MAGIC 
-# MAGIC select infection_reason, datediff(released_date, confirmed_date) as recovery_time, count(patient_id) from patient_csv where released_date is not null group by infection_reason, recovery_time order by recovery_time desc
+# MAGIC select infection_case, datediff(released_date, confirmed_date) as recovery_time, count(patient_id) from patient_csv where released_date is not null group by infection_case, recovery_time order by recovery_time desc
 
 # COMMAND ----------
 
@@ -121,7 +120,7 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC select infection_reason, datediff(deceased_date, confirmed_date) as fatality, count(patient_id) from patient_csv where deceased_date is not null group by infection_reason, fatality order by fatality desc
+# MAGIC select infection_case, datediff(deceased_date, confirmed_date) as fatality, count(patient_id) from patient_csv where deceased_date is not null group by infection_case, fatality order by fatality desc
 
 # COMMAND ----------
 
@@ -132,11 +131,11 @@
 
 # MAGIC %sql
 # MAGIC -- Below shows the number of patients with duration from the confirmed date to the deceased date. On an average, they spent 3 days since confirmation date.
-# MAGIC select infection_reason, state, datediff(deceased_date, confirmed_date) as fatality, count(patient_id) from patient_csv where deceased_date is not null group by infection_reason, state, fatality order by fatality 
+# MAGIC select infection_case, state, datediff(deceased_date, confirmed_date) as fatality, count(patient_id) from patient_csv where deceased_date is not null group by infection_case, state, fatality order by fatality 
 
 # COMMAND ----------
 
 # MAGIC %sql
 # MAGIC -- Below shows the number of patients with duration from the confirmed date to the recovery date. On an average, the patients who spent more days since confirmation, were recovered.
 # MAGIC 
-# MAGIC select infection_reason, state, datediff(released_date, confirmed_date) as recovery, count(patient_id) from patient_csv where released_date is not null group by infection_reason, state, recovery order by recovery 
+# MAGIC select infection_case, state, datediff(released_date, confirmed_date) as recovery, count(patient_id) from patient_csv where released_date is not null group by infection_case, state, recovery order by recovery 
