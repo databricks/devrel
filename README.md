@@ -4,68 +4,65 @@ This repository contains the notebooks and presentations we use for our Databric
 You can find links to the tech talks below as well as the notebooks for these sessions directly in the repo. 
 
 Sections
-- [Featured Tech Talks](#Featured-Tech-Talks)
 - [Upcoming Tech Talks](#Upcoming-Tech-Talks)
-- [Featured Notebooks](#Featured-Notebooks)
+- [Featured](#Featured)
 - [Previous Tech Talks](#Previous-Tech-Talks)
-- [COVID 19 Examples](#COVID-19-Samples)
+- [COVID 19 Samples](#COVID-19-Samples)
   * [Datasets](#datasets)
   * [Notebooks](#notebooks)
-
-
-<a name="Featured-Tech-Talks"/>
-
-## Featured Tech Talks
-
-
-#### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Health_-_The_Noun_Project.svg/240px-Health_-_The_Noun_Project.svg.png" width="32" /> 2020-03-19 - [Analyzing COVID-19: Can the Data Community Help?](https://www.youtube.com/watch?v=A0uBdY4Crlg)
-
-<blockquote>
-With the current concerns over SARS-Cov-2 and COVID-19, there are now various COVID-19 datasets on Kaggle and GitHub, competitions such as the <a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge" target="_blank">COVID-19 Open Research Dataset Challenge (CORD-19)</a>, and models such as University of Washington’s Institute for Health Metrics and Evaluation (IHME) <a href="https://covid19.healthdata.org/" target="_blank">COVID-19 Projections</a>. Whether you are a student or a professional data scientist, we thought we could help out by providing educational sessions on how to analyze these datasets.
-</blockquote><br/>
-<img src="./images/cord-19-EDA-NLP.png" width="800" style="border:1px solid black"/><br/>
-
-
-#### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-08 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Introduction to Python on Databricks](https://www.youtube.com/watch?v=HBVQAlv8MRQ)
-<blockquote>
-	 Python is a popular programming language because of its wide applications including but not limited to data analysis, machine learning, and web development. This workshop covers major foundational concepts necessary for you to start coding in Python, with a focus on data analysis. You will learn about different types of variables, for loops, functions, and conditional statements. No prior programming knowledge is required.
-</blockquote><br/>
-<img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-1.png" width="500"/><br/>
 
 
 <a name="Upcoming-Tech-Talks"/>
 
 ## Upcoming-Tech-Talks
 
-#### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-15 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Data Analysis with Pandas](https://www.meetup.com/data-ai-online/events/269827433/)
-<blockquote>
-	 This workshop is on pandas, a powerful open-source Python package for data analysis and manipulation. In this workshop, you will learn how to read data, compute summary statistics, check data distributions, conduct basic data cleaning and transformation, and plot simple visualizations. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
-</blockquote><br/>
-<img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-2.png" width="500"/><br/>
-
-
-#### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png"> 2020-04-16 - [Diving into Delta Lake: DML Internals](https://databricks.zoom.us/webinar/register/WN_loullvocQXSYfQye9mQNoA)
-<blockquote>
-	In the earlier Delta Lake Internals webinar series sessions, we described how the Delta Lake transaction log works. In this session, we will dive deeper into how commits, snapshot isolation, and partition and files change when performing deletes, updates, merges, and structured streaming.
-</blockquote><br/>
-
 #### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-22 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Machine Learning with scikit-learn](https://www.meetup.com/data-ai-online/events/269838467/)  
 <blockquote>
 	scikit-learn is one of the most popular open-source machine learning libraries among data science practitioners. This workshop will walk through what machine learning is, the different types of machine learning, and how to build a simple machine learning model. This workshop focuses on the techniques of applying and evaluating machine learning methods, rather than the statistical concepts behind them. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
 </blockquote><br/>
+<img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-3.jpg" width="800"/><br/>
 
-<a name="Featured-Notebooks"/>
-## Featured-Notebooks
+#### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png"> 2020-04-23 [Predictive Maintenance (PdM) on IoT Data for Early Fault Detection w/ Delta Lake](https://www.meetup.com/data-ai-online/events/270166033/)
+<blockquote>
+	Predictive Maintenance (PdM) is different from other routine or time-based maintenance approaches as it combines various sensor readings and sophisticated analytics on thousands of logged events in near real time and promises several fold improvements in cost savings because tasks are performed only when warranted. The collaborative Data and Analytics platform from Databricks is a great technology fit to facilitate these use cases by providing a single unified platform to ingest the sensor data, perform the necessary transformations and exploration, run ML and generate valuable insights.
+</blockquote><br/>
+<img src="./images/predictive-maintenance-iot.jpg" width="800"/><br/>
+
+#### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-29 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Introduction to Apache Spark](https://www.meetup.com/data-ai-online/events/270166620/)  
+<blockquote>
+	This workshop covers the fundamentals of Apache Spark, the most popular big data processing engine. In this workshop, you will learn how to ingest data with Spark, analyze the Spark UI, and gain a better understanding of distributed computing. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
+</blockquote><br/>
+<img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-4.jpg" width="800"/><br/>
+
+<a name="Featured"/>
+
+## Featured
+
 #### <img src="./images/Notebook_Black-01.png" width="32"/> [Notebook | Johns Hopkins CSSE COVID-19 Analysis](./samples/)  
 <blockquote>
 	This notebook processes and performs quick analysis from the 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE (https://github.com/CSSEGISandData/COVID-19). The data is updated in the `/databricks-datasets/COVID/CSSEGISandData/` location regularly so you can access the data directly.  The following animated GIF shows the COVID-19 confirmed cases and deaths per the Johns Hopkins dataset spanning 15 days (March 22nd to April 6th 2020).
 </blockquote><br/>
-<img src="./images/covid-19_jhu_v2.gif" style="border:1px solid black"/><br/>
+<img src="./images/covid-19_jhu_v2.gif"  width="800" style="border:1px solid black"/><br/>
 
 
 <a name="Previous-Tech-Talks"/>
 
 ## Previous-Tech-Talks
+
+#### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png"> 2020-04-16 - [Diving into Delta Lake: DML Internals](https://www.youtube.com/watch?v=7ewmcdrylsA)
+<blockquote>
+	In the earlier Delta Lake Internals webinar series sessions, we described how the Delta Lake transaction log works. In this session, we will dive deeper into how commits, snapshot isolation, and partition and files change when performing deletes, updates, merges, and structured streaming.
+</blockquote><br/>
+
+#### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-15 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Data Analysis with Pandas](https://www.youtube.com/watch?v=riSgfbq3jpY)
+<blockquote>
+	 This workshop is on pandas, a powerful open-source Python package for data analysis and manipulation. In this workshop, you will learn how to read data, compute summary statistics, check data distributions, conduct basic data cleaning and transformation, and plot simple visualizations. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
+</blockquote><br/>
+
+#### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-08 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Introduction to Python on Databricks](https://www.youtube.com/watch?v=HBVQAlv8MRQ)
+<blockquote>
+	 Python is a popular programming language because of its wide applications including but not limited to data analysis, machine learning, and web development. This workshop covers major foundational concepts necessary for you to start coding in Python, with a focus on data analysis. You will learn about different types of variables, for loops, functions, and conditional statements. No prior programming knowledge is required.
+</blockquote><br/>
 
 #### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png">2020-04-02 - [Diving into Delta Lake: Enforcing and Evolving Schema](https://www.youtube.com/watch?v=tjb10n5wVs8)
 <blockquote>
@@ -75,6 +72,12 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 #### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png">2020-03-26 - [Diving into Delta Lake: Unpacking the Transaction Log](https://www.youtube.com/watch?v=F91G4RoA8is)
 <blockquote>
 	The transaction log is key to understanding Delta Lake because it is the common thread that runs through many of its most important features, including ACID transactions, scalable metadata handling, time travel, and more. In this session, we’ll explore what the Delta Lake transaction log is, how it works at the file level, and how it offers an elegant solution to the problem of multiple concurrent reads and writes.
+</blockquote><br/>
+
+
+#### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Health_-_The_Noun_Project.svg/240px-Health_-_The_Noun_Project.svg.png" width="32" /> 2020-03-19 - [Analyzing COVID-19: Can the Data Community Help?](https://www.youtube.com/watch?v=A0uBdY4Crlg)
+<blockquote>
+With the current concerns over SARS-Cov-2 and COVID-19, there are now various COVID-19 datasets on Kaggle and GitHub, competitions such as the <a href="https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge" target="_blank">COVID-19 Open Research Dataset Challenge (CORD-19)</a>, and models such as University of Washington’s Institute for Health Metrics and Evaluation (IHME) <a href="https://covid19.healthdata.org/" target="_blank">COVID-19 Projections</a>. Whether you are a student or a professional data scientist, we thought we could help out by providing educational sessions on how to analyze these datasets.
 </blockquote><br/>
 
 #### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Font_Awesome_5_solid_podcast.svg/32px-Font_Awesome_5_solid_podcast.svg.png"> 2020-03-19 - [Machine Learning Lessons Learned from the Field: Interview with Brooke Wenig](https://www.meetup.com/data-ai-online/events/268966416/)
@@ -108,3 +111,35 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 <a name="COVID-19-Samples"/>
 
 ## COVID-19-Samples
+
+This section contains links to COVID-19 sample datasets and notebooks 
+
+<a name="datasets"/>
+
+### Datasets
+
+|`/databricks-datasets/[location]`	| Resource |
+| --------------------------------- | -------- |
+| `/../COVID/CORD-19/` | [COVID-19 Open Research Dataset Challenge (CORD-19)](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge) |
+| `/../COVID/CSSEGISandData/` | [2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19) |
+| `/../COVID/ESRI_hospital_beds/` | [Definitive Healthcare: USA Hospital Beds](https://coronavirus-resources.esri.com/datasets/definitivehc::definitive-healthcare-usa-hospital-beds?geometry=92.988%2C-16.820%2C-117.950%2C72.123)|
+|`/../COVID/IHME/` | [IHME (UW) COVID-19 Projections](https://covid19.healthdata.org/projections) |
+| `/../COVID/USAFacts/`	| USA Facts: [Confirmed](https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv) \| [Deaths](https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_deaths_usafacts.csv) |
+|`/../COVID/coronavirusdataset/` |[Data Science for COVID-19 (DS4C) (South Korea)](https://www.kaggle.com/kimjihoo/coronavirusdataset)|
+|`/../COVID/covid-19-data/` | [NY Times COVID-19 Datasets](https://github.com/nytimes/covid-19-data) |
+
+
+<a name="notebooks"/>
+
+### Notebooks
+
+| Notebooks | Description | Datasets Used |
+| --------- | ----------- | ------------- |
+| [Load JSON Datasets](https://github.com/databricks/tech-talks/blob/master/2020-03-19%20%7C%20Analyzing%20COVID-19%20-%20Can%20the%20Data%20Community%20Help/1.%20Load%20JSON%20Datasets.html) | Loading CORD-19 JSON Datasets | [COVID-19 Open Research Dataset Challenge (CORD-19)](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge) |
+| [Analyzing CORD-19 Datasets](https://github.com/databricks/tech-talks/blob/master/2020-03-19%20%7C%20Analyzing%20COVID-19%20-%20Can%20the%20Data%20Community%20Help/2.%20Analyze%20CORD-19%20Datasets.html) | Exploratory Data Analysis of the CORD-19 dataset | [COVID-19 Open Research Dataset Challenge (CORD-19)](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge) |
+| [NLP - Exploring CV19 Literature](https://github.com/databricks/tech-talks/blob/master/2020-03-19%20%7C%20Analyzing%20COVID-19%20-%20Can%20the%20Data%20Community%20Help/NLP%20-%20Exploring%20CV19%20Literature%20using%20Parquet.html) | Exploring CORD-19 Literature using NLP | [COVID-19 Open Research Dataset Challenge (CORD-19)](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge) |
+| [South Korea COVID-19 Analysis](https://github.com/databricks/tech-talks/blob/master/2020-03-19%20%7C%20Analyzing%20COVID-19%20-%20Can%20the%20Data%20Community%20Help/SouthKorea-Covid19_Analysis.html) | Exploratory Data Analysis of the South Korea COVID-19 dataset | [Data Science for COVID-19 (DS4C) (South Korea)](https://www.kaggle.com/kimjihoo/coronavirusdataset)|
+| [Johns Hopkins COVID-19 Analysis](https://github.com/databricks/tech-talks/blob/master/samples/JHU%20COVID-19%20Analysis.html) | Exploratory Data Analysis of the Johns Hopkins CSSE COVID-19 dataset | [2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19) |
+| [NY Times COVID-19 Analysis](https://github.com/databricks/tech-talks/blob/master/samples/NYT%20COVID-19%20Analysis.html) | Exploratory Data Analysis of the NY Times COVID-19 dataset | [NY Times COVID-19 Datasets](https://github.com/nytimes/covid-19-data) |
+
+
