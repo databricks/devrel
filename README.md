@@ -14,6 +14,7 @@ Sections
 
 
 <a name="Featured-Tech-Talks"/>
+
 ## Featured Tech Talks
 
 
@@ -33,6 +34,7 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 
 
 <a name="Upcoming-Tech-Talks"/>
+
 ## Upcoming-Tech-Talks
 
 #### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-15 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Data Analysis with Pandas](https://www.meetup.com/data-ai-online/events/269827433/)
@@ -62,6 +64,7 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 
 
 <a name="Previous-Tech-Talks"/>
+
 ## Previous-Tech-Talks
 
 #### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png">2020-04-02 - [Diving into Delta Lake: Enforcing and Evolving Schema](https://www.youtube.com/watch?v=tjb10n5wVs8)
@@ -103,4 +106,5 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 
 
 <a name="COVID-19-Samples"/>
+
 ## COVID-19-Samples
