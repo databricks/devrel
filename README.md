@@ -3,7 +3,18 @@ This repository contains the notebooks and presentations we use for our Databric
 
 You can find links to the tech talks below as well as the notebooks for these sessions directly in the repo. 
 
-## Featured Tech Talk
+Sections
+- [Featured Tech Talks](#Featured-Tech-Talks)
+- [Upcoming Tech Talks](#Upcoming-Tech-Talks)
+- [Featured Notebooks](#Featured-Notebooks)
+- [Previous Tech Talks](#Previous-Tech-Talks)
+- [COVID 19 Examples](#COVID-19-Samples)
+  * [Datasets](#datasets)
+  * [Notebooks](#notebooks)
+
+
+<a name="Featured-Tech-Talks"/>
+## Featured Tech Talks
 
 
 #### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Health_-_The_Noun_Project.svg/240px-Health_-_The_Noun_Project.svg.png" width="32" /> 2020-03-19 - [Analyzing COVID-19: Can the Data Community Help?](https://www.youtube.com/watch?v=A0uBdY4Crlg)
@@ -21,7 +32,8 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 <img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-1.png" width="500"/><br/>
 
 
-## Upcoming Tech Talks
+<a name="Upcoming-Tech-Talks"/>
+## Upcoming-Tech-Talks
 
 #### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-15 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Data Analysis with Pandas](https://www.meetup.com/data-ai-online/events/269827433/)
 <blockquote>
@@ -40,8 +52,8 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 	scikit-learn is one of the most popular open-source machine learning libraries among data science practitioners. This workshop will walk through what machine learning is, the different types of machine learning, and how to build a simple machine learning model. This workshop focuses on the techniques of applying and evaluating machine learning methods, rather than the statistical concepts behind them. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
 </blockquote><br/>
 
-
-## Featured Notebooks
+<a name="Featured-Notebooks"/>
+## Featured-Notebooks
 #### <img src="./images/Notebook_Black-01.png" width="32"/> [Notebook | Johns Hopkins CSSE COVID-19 Analysis](./samples/)  
 <blockquote>
 	This notebook processes and performs quick analysis from the 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE (https://github.com/CSSEGISandData/COVID-19). The data is updated in the `/databricks-datasets/COVID/CSSEGISandData/` location regularly so you can access the data directly.  The following animated GIF shows the COVID-19 confirmed cases and deaths per the Johns Hopkins dataset spanning 15 days (March 22nd to April 6th 2020).
@@ -49,7 +61,8 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 <img src="./images/covid-19_jhu_v2.gif" style="border:1px solid black"/><br/>
 
 
-## Previous Tech Talks
+<a name="Previous-Tech-Talks"/>
+## Previous-Tech-Talks
 
 #### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png">2020-04-02 - [Diving into Delta Lake: Enforcing and Evolving Schema](https://www.youtube.com/watch?v=tjb10n5wVs8)
 <blockquote>
@@ -89,3 +102,5 @@ With the current concerns over SARS-Cov-2 and COVID-19, there are now various CO
 </blockquote><br/>
 
 
+<a name="COVID-19-Samples"/>
+## COVID-19-Samples
