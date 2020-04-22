@@ -2,7 +2,7 @@
 
 2020-04-22 | [Watch the video]() | This folder contains the presentation and sample notebooks
 
-Join us for a three part learning series: *Introduction to Data Analysis for Aspiring Data Scientists*. This is the second of three (maybe four, depending on what you all think!) online workshops for anyone and everyone interested in learning about data analysis. No previous programming experience required.
+Join us for a four part learning series: *Introduction to Data Analysis for Aspiring Data Scientists*. This is the third of four online workshops for anyone and everyone interested in learning about data analysis. No previous programming experience required.
 
 **Part 3: Machine Learning with scikit-learn**
 
