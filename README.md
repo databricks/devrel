@@ -38,13 +38,13 @@ Sections
 
 ## Featured
 
-#### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Health_-_The_Noun_Project.svg/240px-Health_-_The_Noun_Project.svg.png" width="32"/> [Notebook | Johns Hopkins CSSE COVID-19 Analysis](./samples/JHU COVID-19 Analysis.html)  
+#### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Health_-_The_Noun_Project.svg/240px-Health_-_The_Noun_Project.svg.png" width="32"/> [Notebook | Johns Hopkins CSSE COVID-19 Analysis](./samples/JHU%32COVID-19%32Analysis.html)  
 <blockquote>
 	This notebook processes and performs quick analysis from the 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE (https://github.com/CSSEGISandData/COVID-19). The data is updated in the `/databricks-datasets/COVID/CSSEGISandData/` location regularly so you can access the data directly.  The following animated GIF shows the COVID-19 confirmed cases and deaths per 100K people per the Johns Hopkins CSSE dataset spanning March 22nd to April 14th 2020.
 </blockquote><br/>
 <img src="./images/covid-19_jhu_v3.gif"  width="800" style="border:1px solid black"/><br/>
 
-#### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Health_-_The_Noun_Project.svg/240px-Health_-_The_Noun_Project.svg.png" width="32"/> [Notebook | NY Times COVID-19 Analysis](./samples/NYT COVID-19 Analysis.html)  
+#### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Health_-_The_Noun_Project.svg/240px-Health_-_The_Noun_Project.svg.png" width="32"/> [Notebook | NY Times COVID-19 Analysis](./samples/NYT%32COVID-19%32Analysis.html)  
 <blockquote>
 	This notebook processes and performs quick analysis from the NY Times COVID-19 dataset (https://github.com/nytimes/covid-19-data). The data is updated in the `/databricks-datasets/COVID/covid-19-data/` location regularly so you can access the data directly.  The following animated GIFs shows the COVID-19 confirmed cases and deaths per 100K people from the NY Times dataset spanning two week window around when educational facilities were closed for Washington (3/13) and New York (3/18) states .
 </blockquote><br/>
