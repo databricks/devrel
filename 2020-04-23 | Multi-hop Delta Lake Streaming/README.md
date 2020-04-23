@@ -1,6 +1,11 @@
-##### Notebook Guide:
+<i> Note: </i> Multiple personas are involved along different points of a data pipeline
+
+This demo is a multi-notebook approach keeping these personas in mind i.e. there is division of labor where Data Investigation tasks are demoed in separate notebooks to emphasize that you can be involved in a part or the whole pipeline depending on what you choose.
+
+##### Notebook Organization:
 <b>Include</b> - Is a notebook that is included in other notebooks that defines base parameters <br>
 <i>If you wish to change organization of the file paths, set them here </i><br>
+
 <b>Setup & Teardown</b> - Is a notebook that has helper routines for setup & teardown <br>
 <i>Run this to create/tear down the setup</i>
   
@@ -11,8 +16,3 @@
   * <i>2a-Read Silver</i> - is a companion notebook which simulates a persona downstream consuming data from silver table
 * <b>3-Data Rollup</b> - Is the following notebook that reads the incoming stream from silver table, refines it and lands it into gold zone
   * <i>3a-Read Gold</i> - is a companion notebook which simulates a persona downstream consuming data from silver table
-
-
-<i> Note: </i> Multiple personas are involved along different points of a data pipeline
-
-This demo is a multi-notebook approach keeping these personas in mind i.e. there is division of labor where Data Investigation tasks are demoed in separate notebooks to emphasize that you can be involved in a part or the whole pipeline depending on what you choose.
