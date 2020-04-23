@@ -6,8 +6,8 @@ This demo is a multi-notebook approach keeping these personas in mind i.e. there
 <b>Include</b> - Is a notebook that is included in other notebooks that defines base parameters <br>
 <i>If you wish to change organization of the file paths, set them here </i><br>
 
-<b>Setup & Teardown</b> - Is a notebook that has helper routines for setup & teardown <br>
-<i>Run this to create/tear down the setup</i>
+<b>Setup & Teardown</b> - Are companion notebook that have helper routines for setup & teardown <br>
+<i>Run this to create/tear down the setup; It has instructions on cloud infrastructure setup</i>
   
 
 * <b>1-Data Ingest</b> -  reads the incoming streaming data to land it in the bronze zone
