@@ -1,3 +1,8 @@
+## Predictive Maintenance (PdM) on IoT Data for Early Fault Detection w/ Delta Lake
+
+2020-04-23 | [Watch the video](https://www.youtube.com/watch?v=68zy_nSV8g0) | This folder contains the presentation and sample notebooks
+
+
 <i> Note: </i> Multiple personas are involved along different points of a data pipeline
 
 This demo is a multi-notebook approach keeping these personas in mind i.e. there is division of labor where Data Investigation tasks are demoed in separate notebooks to emphasize that you can be involved in a part or the whole pipeline depending on what you choose.
