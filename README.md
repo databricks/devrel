@@ -16,23 +16,18 @@ Sections
 
 ## Upcoming-Tech-Talks
 
-#### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-22 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Machine Learning with scikit-learn](https://www.meetup.com/data-ai-online/events/269838467/)  
-<blockquote>
-	scikit-learn is one of the most popular open-source machine learning libraries among data science practitioners. This workshop will walk through what machine learning is, the different types of machine learning, and how to build a simple machine learning model. This workshop focuses on the techniques of applying and evaluating machine learning methods, rather than the statistical concepts behind them. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
-</blockquote><br/>
-<img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-3.jpg" width="800"/><br/>
-
-#### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png"> 2020-04-23 [Predictive Maintenance (PdM) on IoT Data for Early Fault Detection w/ Delta Lake](https://www.meetup.com/data-ai-online/events/270166033/)
-<blockquote>
-	Predictive Maintenance (PdM) is different from other routine or time-based maintenance approaches as it combines various sensor readings and sophisticated analytics on thousands of logged events in near real time and promises several fold improvements in cost savings because tasks are performed only when warranted. The collaborative Data and Analytics platform from Databricks is a great technology fit to facilitate these use cases by providing a single unified platform to ingest the sensor data, perform the necessary transformations and exploration, run ML and generate valuable insights.
-</blockquote><br/>
-<img src="./images/predictive-maintenance-iot.jpg" width="800"/><br/>
-
 #### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-29 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Introduction to Apache Spark](https://www.meetup.com/data-ai-online/events/270166620/)  
 <blockquote>
 	This workshop covers the fundamentals of Apache Spark, the most popular big data processing engine. In this workshop, you will learn how to ingest data with Spark, analyze the Spark UI, and gain a better understanding of distributed computing. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
 </blockquote><br/>
 <img src="./images/introduction-to-data-analysis-for-aspiring-data-scientists-part-4.jpg" width="800"/><br/>
+
+
+#### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png"> 2020-04-30 [Using Delta as a Change Data Capture Source](https://www.meetup.com/data-ai-online/events/270202602/)
+<blockquote>
+	While it is common to use Delta Lake as a sink for change data captured from traditional data sources; customers are increasingly asking how to use Delta tables as a source for a change data capture (CDC) process. To state a different way, how can we read a stream of changes from a Delta table, so that they can be propagated downstream.  In each of these cases, we want to capture a change stream from a Delta table and send it somewhere for further processing. In this session, we will discuss the architecture, use cases, and solutions.
+</blockquote>
+<img src="./images/using-delta-as-a-change-data-capture-source.jpeg" width="800"/><br/>
 
 <a name="Featured"/>
 
@@ -61,6 +56,16 @@ Sections
 <a name="Previous-Tech-Talks"/>
 
 ## Previous-Tech-Talks
+
+#### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png"> 2020-04-23 [Predictive Maintenance (PdM) on IoT Data for Early Fault Detection w/ Delta Lake](https://www.meetup.com/data-ai-online/events/270166033/)
+<blockquote>
+	Predictive Maintenance (PdM) is different from other routine or time-based maintenance approaches as it combines various sensor readings and sophisticated analytics on thousands of logged events in near real time and promises several fold improvements in cost savings because tasks are performed only when warranted. The collaborative Data and Analytics platform from Databricks is a great technology fit to facilitate these use cases by providing a single unified platform to ingest the sensor data, perform the necessary transformations and exploration, run ML and generate valuable insights.
+</blockquote><br/>
+
+#### <img src="./images/Machine_learning_Black-01.png" width="32"/> 2020-04-22 - [Workshop | Introduction to Data Analysis for Aspiring Data Scientists: Machine Learning with scikit-learn](https://www.meetup.com/data-ai-online/events/269838467/)  
+<blockquote>
+	scikit-learn is one of the most popular open-source machine learning libraries among data science practitioners. This workshop will walk through what machine learning is, the different types of machine learning, and how to build a simple machine learning model. This workshop focuses on the techniques of applying and evaluating machine learning methods, rather than the statistical concepts behind them. We will be using data released by the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins Center for Systems Science and Engineering (CSSE) Novel Coronavirus (COVID-19)</a>. Prior basic Python experience is recommended.
+</blockquote><br/>
 
 #### <img src="https://pages.databricks.com/rs/094-YMS-629/images/delta-lake-tiny-logo.png"> 2020-04-16 - [Diving into Delta Lake: DML Internals](https://www.youtube.com/watch?v=7ewmcdrylsA)
 <blockquote>
