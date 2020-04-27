@@ -8,4 +8,5 @@ Join us for Part 4 of our online learning series: *Introduction to Data Analysis
 
 Abstract: This workshop covers the fundamentals of Apache Spark, the most popular big data processing engine. In this workshop, you will learn how to ingest data with Spark, analyze the Spark UI, and gain a better understanding of distributed computing. We will be using data released by the [New York Times](https://github.com/nytimes/covid-19-data). No prior knowledge of Spark is required, but Python experience is highly recommended.
 
+
 Who should attend this workshop: Anyone and everyone, CS students and even non-technical folks are welcome to join.
