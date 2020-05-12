@@ -312,4 +312,3 @@ display(j2.select("remove").where("remove is not null"))
 
 # COMMAND ----------
 
-

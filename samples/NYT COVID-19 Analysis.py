@@ -586,4 +586,3 @@ map_state_graph('NY', ny_counties, confirmed_ny_m1, 1, 4500, deaths_ny, 1, 70, 3
 
 # COMMAND ----------
 
-

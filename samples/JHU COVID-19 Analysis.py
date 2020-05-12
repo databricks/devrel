@@ -477,4 +477,3 @@ points = alt.Chart(
 
 # COMMAND ----------
 
-
