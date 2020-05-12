@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md 
-# MAGIC ## 1. Load JSON Dataset demo
+# MAGIC ## 1. Load JSON Dataset conflict
 # MAGIC ### COVID-19 Open Research Dataset Challenge (CORD-19) Working Notebooks
 # MAGIC 
 # MAGIC This is a working notebook for the [COVID-19 Open Research Dataset Challenge (CORD-19)](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge) to help you jump start your analysis of the CORD-19 dataset.  
