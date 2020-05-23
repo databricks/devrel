@@ -1,5 +1,0 @@
-## Beyond Lambda: Introducing Delta Architecture
-
-2020-03-05 | [Watch the video](https://www.youtube.com/watch?v=FePv0lro0z8) | This folder contains the presentation and sample notebooks
-
-Lambda architecture is a popular technique where records are processed by a batch system and streaming system in parallel. The results are then combined during query time to provide a complete answer. Strict latency requirements to process old and recently generated events made this architecture popular. The key downside to this architecture is the development and operational overhead of managing two different systems. There have been attempts to unify batch and streaming into a single system in the past. Organizations have not been that successful though in those attempts. But, with the advent of Delta Lake, we are seeing a lot of our customers adopting a simple continuous data flow model to process data as it arrives. We call this architecture, The Delta Architecture. In this session, we cover the major bottlenecks for adopting a continuous data flow model and how the Delta architecture solves those problems.
