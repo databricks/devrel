@@ -1,6 +1,4 @@
-Notebooks for the 'Slowly Changing Dimensions (SCD) Type 2' online tech talk
-https://www.youtube.com/watch?v=HZWwZG07hzQ
-
+![Notebooks for the 'Slowly Changing Dimensions (SCD) Type 2' online tech talk](https://www.youtube.com/watch?v=HZWwZG07hzQ)
 
 # SCD Type 2 Demo using Delta Lake MERGE INTO
 
