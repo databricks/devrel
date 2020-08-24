@@ -1,4 +1,4 @@
-## Getting Data Ready for Data Science with Delta Lake
+## Introducing Glow: An Open-Source Toolkit for Large-Scale Genomic Analysis
 
 2020-08-11 | [Watch the video](https://www.youtube.com/watch?v=SQxGx6RTMA8) | This folder contains the presentation
 
