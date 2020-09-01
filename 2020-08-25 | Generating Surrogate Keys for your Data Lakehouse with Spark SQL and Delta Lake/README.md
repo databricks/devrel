@@ -1,4 +1,5 @@
 # Introduction to Surrogate Key Generation for Lake House
+2020-08-25 | [Watch the video](https://www.youtube.com/watch?v=aF2hRH5WZAU) | This folder contains the notebooks used in this tutorial.
 
 1. History of Surrogate Keys
 
@@ -104,7 +105,7 @@ The potential problem with this approach though is **hash collisions** where the
 
 This issue is also known as the "birthday problem" where two different UserIDs having the same Hash_of_the_UserID.   For example, if you use a 32-bit hash (the equivalent of converting your RDBMS HashBytes hash value to integer) with 100,000 users, we can use the Taylor series to approximate the chance (p) of a collision:
 
-![formula](https://render.githubusercontent.com/render/math?math=p%20\=%20\1%20\-%20\e^(\frac{-1%20\x%20\(10^5)^2}{2%20\x%20\2^{32}}\))=68.787\% )
+![formula](https://render.githubusercontent.com/render/math?math=p%20\=%20\1%20\-%20\e^(\frac{-1%20\x%20\(10^5)^2}{2%20\x%20\2^{32}}\))=68.787\% 
 
 If you use a 64-bit hash (the equivalent of converting your RDBMS HashBytes hash value to big integer), the chance of collision essentially becomes zero for 100,000 users. It isn’t until you reach 100 million users that the chance of collision climbs to 0.027%. 
 
