@@ -1,6 +1,6 @@
 ## How Delta Lake Supercharges Data Lakes
 
-2020-08-27 | Watch the video | This folder contains the notebooks used in this tutorial.
+2020-08-27 | [Watch the video](https://www.youtube.com/watch?v=u1VfOiHVeMI) | This folder contains the notebooks used in this tutorial.
 
 Delta Lake’s transaction log brings high reliability, performance, and ACID compliant transactions to data lakes. But exactly how does it accomplish this? Working through concrete examples, we will take a close look at how the transaction logs are managed and leveraged by Delta to supercharge data lakes.
 
