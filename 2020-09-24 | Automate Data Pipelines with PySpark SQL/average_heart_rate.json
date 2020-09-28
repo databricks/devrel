@@ -1,0 +1,41 @@
+{
+	"data": {
+		"results": [{
+				"user_id": 24,
+				"average_heart_rate": 75,
+				"num_steps": 5014,
+				"miles_walked": 2.506999969482422,
+				"time_stamp": "2018-07-21 13:53:32.530695",
+				"device_id": 5
+			},
+
+			{
+				"user_id": 4,
+				"average_heart_rate": 92,
+				"num_steps": 7314,
+				"miles_walked": 3.6570000648498535,
+				"time_stamp": "2018-07-24 02:37:36.530805",
+				"device_id": 5
+			},
+
+			{
+				"user_id": 24,
+				"average_heart_rate": 111,
+				"num_steps": 2536,
+				"miles_walked": 1.2680000066757202,
+				"time_stamp": "2018-07-22 14:24:34.530772",
+				"device_id": 13
+			},
+
+			{
+				"user_id": 4,
+				"average_heart_rate": 92,
+				"num_steps": 7314,
+				"miles_walked": 3.6570000648498535,
+				"time_stamp": "2018-07-24 02:37:36.530805",
+				"device_id": 5
+			}
+
+		]
+	}
+}
