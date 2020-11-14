@@ -6,7 +6,7 @@ Download the `Police.dbc` file, and import it into your Databricks workspace. Th
 
 Alternatively, if you do not have access to a Databricks workspace, you can also download the individual `.html` files and open them in your browser to view the notebooks. 
 
-Additionally, we've included a `state_mappings.csv` file that maps state abbreviations to state names to make the analysis a bit more readible.
+Additionally, we've included a `state_mappings.csv` file that maps state abbreviations to state names to make the analysis more readable.
 
 
 
