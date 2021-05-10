@@ -1,0 +1,1 @@
+CREATE EXTERNAL TABLE `final_{table_name}`(`calories_burnt` double, `device_id` bigint, `miles_walked` double, `num_steps` bigint, `time_stamp` timestamp, `sample_new_field` string)  PARTITIONED BY (`user_id` bigint)
