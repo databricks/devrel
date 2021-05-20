@@ -84,7 +84,8 @@ print(f'Number of features = {len(features)}')
 
 # COMMAND ----------
 
-experiment_id = mlflow.create_experiment("/Users/francois.callewaert@databricks.com/Headphone purchase prediction - Feature selection")
+email = 'yourEmail'
+experiment_id = mlflow.create_experiment(f"/Users/{email}/Headphone purchase prediction - Feature selection")
 
 # COMMAND ----------
 
