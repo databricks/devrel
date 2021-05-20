@@ -5,7 +5,7 @@ set spark.databricks.delta.properties.defaults.autoOptimize.autoCompact = true
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC # Create business aggregated table
+-- MAGIC # DA: Create business aggregated table
 
 -- COMMAND ----------
 
@@ -20,11 +20,13 @@ Group By category_code, date
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC # Create Feature table
+-- MAGIC # DS: Create Feature table
 
 -- COMMAND ----------
 
 -- MAGIC %python
+-- MAGIC from pyspark.sql.functions import expr
+-- MAGIC 
 -- MAGIC spark.sql("""Select user_id, concat(category_code, '_', event_type) as category_event
 -- MAGIC              From ecommerce_demo.events
 -- MAGIC              Where category_code is not null
