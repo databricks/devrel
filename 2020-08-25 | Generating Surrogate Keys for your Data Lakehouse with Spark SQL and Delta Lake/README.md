@@ -117,7 +117,7 @@ In the past, we would solve the problem by using 64-bit hashes to minimize the l
 # Wrap Up
 * monotonically_increasing_id()
 * zipWithIndex() [Vote](https://issues.apache.org/jira/browse/SPARK-23074)
-* zipWithUniqueIndex()
+* zipWithUniqueId()
 * row_number()
 * hash()
 * md5()
