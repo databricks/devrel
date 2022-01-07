@@ -1,6 +1,6 @@
 # Geospatial Analytics and AI at Scale
 
-2021-12-14 | [Link to YouTube Video on Databricks Channel (pending upload)](link) | This folder contains the notebooks used in this session
+2021-12-14 | [Workshop: Geospatial Analytics and AI at Scale](https://youtu.be/LP198QMdDbY?t=142) | This folder contains the notebooks used in this session
 
 ## Speakers
 
