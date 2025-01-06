@@ -5,7 +5,8 @@
 ## Overview
 
 The slowly changing dimension type two (SCD Type 2) is a classic data warehouse and star schema mainstay. This structure enables 'as-of' analytics over the point in time facts stored in the fact table(s). Customer, device, product, store, supplier are typical dimensions in a data warehouse. Facts such as orders and sales link dimensions together at the point in time the fact occured. However, dimensions, such as customers might change over time, customers may move, they may get reclassified as to their market segment as in this hypothetical demo scenario. The dimension is termed 'slowly changing' because the dimension doesn't change on a regular schedule.
-![Delta Lake w/ Dimensional Schema Production](https://databricks-knowledge-repo-images.s3.us-east-2.amazonaws.com/DeltaLake/deltalake-dimensional-modeling.png)
+![Delta Lake w/ Dimensional Schema Production]()
+
 When the data system receives the new customer information, the new customer dimension record is created. If an existing customer record of a matching key value exists, instead of over-writing the current record (a type 1 update) the current record is marked as in-active while preserving any foriegn key relationships to fact tables. The currrent record is also given an end date signifying the last date(time) the record was meaningful. A new record with the new information is inserted, with a first effect date (or start date) set to the effective date of the incoming customer information, often the job date(time) of the job running the load. The end date of the new record is set to `NULL` to signify the end date is not known, or is set to a rather large (e.g. 12/31/9999) value to make coding between clauses easier.   Thus the count of active customer records remains the same. 
 
 Additional constraints:
